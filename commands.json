@@ -1,0 +1,7 @@
+﻿{
+    "suse": { },
+    "solaris": { },
+    "fedora": { },
+    "centos": { },
+    "ubuntu": { }
+}
