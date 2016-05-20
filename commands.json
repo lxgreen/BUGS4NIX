@@ -1,7 +1,72 @@
 ﻿{
-    "suse": { },
-    "solaris": { },
-    "fedora": { },
-    "centos": { },
-    "ubuntu": { }
+    "agnostic": {
+        "supported_flavors": [ "SUSE", "Solaris", "Fedora", "CentOS", "Ubuntu" ],
+        "commands": {
+            "test_etc_release": {
+                "command_line": "cat /etc/*release | grep -i {0}",
+                "params": [ "os_id" ]
+            },
+            "test_proc_version": {
+                "command_line": "cat /proc/version | grep -i {0}",
+                "params": [ "os_id" ]
+            },
+            "test_lsb_release": {
+                "command_line": "lsb_release -a | grep -i {0}",
+                "params": [ "os_id" ]
+            }
+        }
+    },
+    "CentOS": {
+        "commands": {
+            "create_user": {
+                "command_line": "useradd {0}",
+                "params": [ "user.name" ]
+            },
+            "create_group": {
+                "command_line": "groupadd {0}",
+                "params": [ "group.name" ]
+            },
+            "add_user_to_group": {
+                "command_line": "gpasswd -a {0} {1}",
+                "params": [ "user.name", "user.groups" ]
+            },
+            "set_user_password": {
+                "command_line": "echo -e \"{0}\\n{0}\" | (passwd --stdin {1})",
+                "params": [ "user.password", "user.name" ]
+            },
+            "lock_user": {
+                "command_line": "passwd {0}",
+                "params": [ "user.name" ]
+            },
+            "generate_ssh_key": {
+
+            },
+            "create_directory": {
+                "command_line": "mkdir {0}",
+                "params": [ "dir.name" ]
+            },
+            "create_text_file": {
+                "command_line": "echo {0} > {1}",
+                "params": [ "file.content", "file.name" ]
+            },
+            "set_permissions": {
+                "command_line": "chmod {0} {1}",
+                "params": [ "node.mode", "node.name" ]
+            },
+            "set_owner": {
+                "command_line": "chown {0} {1}",
+                "params": [ "node.owner", "node.name" ]
+            }
+        },
+        "script": [
+            "create_groups",
+            "create_users",
+            "create_files"
+        ]
+
+    },
+    "SUSE": { },
+    "Solaris": { },
+    "Fedora": { },
+    "Ubuntu": { }
 }

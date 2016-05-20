@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5dc1616b-0c02-4800-9bc4-5be188c8ac7a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>UnixAutomation.py</StartupFile>
+    <StartupFile>unix_automation.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="UnixAutomation.py" />
+    <Compile Include="commands.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="json_file_parser.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="os_detector.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="script_runner.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="unix_automation.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="commands.json" />

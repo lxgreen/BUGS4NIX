@@ -1,5 +1,45 @@
 ﻿{
-    "users": [],
-    "groups": [],
+    "groups": ["testers", "admins", "users", "managers"],
+    "users": [
+        {
+            "name": "Kevin",
+            "password": "Guys!",
+            "groups": [ "admins", "managers" ],
+            "locked":  false
+        },
+        {
+            "name": "Stewart",
+            "password": "Banana!",
+            "groups": [ "testers" ],
+            "locked": true
+        },
+        {
+            "name": "Bob",
+            "password": "AAAaaaAAAaaa!",
+            "groups": [ "users" ],
+            "locked": true
+        }
+    ],
+    "files": [
+        {
+            "name": "/home/Stewart/BANANA",
+            "content": "BANANA!!!",
+            "owner": "Stewart",
+            "mode": 666
+        },
+        {
+            "name": "/home/Kevin/LavaGun",
+            "content": "Lava",
+            "owner": "Kevin",
+            "mode": 755
+        },
+        {
+            "name": "/home/Kevin/TeddyBear",
+            "content": "Plush",
+            "owner": "Bob",
+            "mode": 700
+        }
+    ],
+    "dirs": [ ],
     "ssh_keys": []
 }
