@@ -28,7 +28,7 @@
             },
             "add_user_to_group": {
                 "command_line": "gpasswd -a {0} {1}",
-                "params": [ "name", "group" ]
+                "params": [ "group", "name" ]
             },
             "set_user_password": {
                 "command_line": "echo -e \"{0}\\n{0}\" | (passwd --stdin {1})",
