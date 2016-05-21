@@ -21,6 +21,7 @@ class Command:
         try:  
             output = subprocess.check_output(command_line, shell=True)    
             return_code = CommandResult.SUCCESS_CODE
+            print "command '{0}' executed successfully".format(command_line)
         except subprocess.CalledProcessError as error:
             output = error.output
             return_code = error.returncode            

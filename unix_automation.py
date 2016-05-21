@@ -18,8 +18,9 @@ def main():
         file_parser = JSONFileParser(args.commands_path, args.data_path)
         os_detector = OSDetector(file_parser.commands['agnostic'])
         flavor_id = os_detector.detect_flavor()
+        print "OS detected: {0}".format(flavor_id)
         script_runner = ScriptRunner(file_parser.commands[flavor_id], file_parser.data)
-        script_runner.run();          
+        script_runner.run()         
     except Exception as error:
         print 'Error: {0}'.format(error.message)
     return 0

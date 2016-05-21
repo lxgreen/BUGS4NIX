@@ -16,7 +16,7 @@
             }
         }
     },
-    "Fedora": {
+    "CentOS": {
         "commands": {
             "create_user": {
                 "command_line": "useradd {0}",
@@ -68,6 +68,6 @@
     },
     "SUSE": { },
     "Solaris": { },
-    "CentOS": { },
+    "Fedora": { },
     "Ubuntu": { }
 }
