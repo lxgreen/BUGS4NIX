@@ -59,8 +59,8 @@
             }
         },
         "script": [
-            "create_users",
             "create_groups",
+            "create_users",
             "create_dirs",
             "create_files"
         ]
@@ -111,8 +111,8 @@
             }
         },
         "script": [
-            "create_users",
             "create_groups",
+            "create_users",
             "create_dirs",
             "create_files"
         ]
