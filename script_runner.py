@@ -14,9 +14,9 @@ class ScriptRunner:
                 raise RuntimeError("unsupported script command '{0}' detected".format(command))
 
     def _getArgs(self, data_entity, params):
-        args = set()
+        args = []
         for param in params:            
-            args.add(data_entity[param])                 
+            args.append(data_entity[param])                 
         return args
 
     def _execute_command(self, data_entity, command):
