@@ -9,6 +9,9 @@ class CommandResult:
         self.return_code = return_code
         self.command = command
 
+    def to_string(self):
+        return "command: '{0}', output: '{1}', return code: {2}".format(self.command, self.output, self.return_code)
+
 class Command:
     def __init__(self, command, params):
         self._command = command

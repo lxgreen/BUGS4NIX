@@ -23,12 +23,14 @@ class ScriptRunner:
         args = self._getArgs(data_entity, command['params'])
         result = Command(command['command_line'], args).execute()
         if result.return_code is not result.SUCCESS_CODE:
-            raise RuntimeError("the command '{0}' returned error code '{1}'. The command output is '{2}'".format(result.command, result.return_code, result.output))
+                print "Error: {0}".format(result.to_string())
+        return result
 
+    # TODO: handle errors
     def create_groups(self, data):
         create_group = self._commands['create_group']
         for group in data['groups']:
-            self._execute_command(group, create_group)   
+            self._execute_command(group, create_group)           
 
     def create_users(self, data):
         create_user = self._commands['create_user']

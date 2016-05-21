@@ -1,49 +1,49 @@
 {
-    "groups": [{"name": "testers"}, {"name": "admins"}, {"name": "users"}, {"name": "managers"}],
+    "groups": [{"name": "minions"}, {"name": "guys"}],
     "users": [
         {
-            "name": "Kevin",
+            "name": "kevin",
             "password": "Guys!",
-            "groups": [ "admins", "managers" ],
+            "groups": [ "minions", "guys" ],
             "locked":  false
         },
         {
-            "name": "Stewart",
+            "name": "stewart",
             "password": "Banana!",
-            "groups": [ "testers" ],
+            "groups": [ "minions" ],
             "locked": true
         },
         {
-            "name": "Bob",
+            "name": "bob",
             "password": "AAAaaaAAAaaa!",
-            "groups": [ "users" ],
+            "groups": [ "minions" ],
             "locked": true
         }
     ],
     "files": [
         {
-            "name": "/home/Stewart/BANANA",
+            "name": "/home/stewart/BANANA",
             "content": "BANANA!!!",
-            "owner": "Stewart",
+            "owner": "stewart",
             "mode": 666
         },
         {
-            "name": "/home/Kevin/LavaGun",
+            "name": "/home/kevin/LavaGun",
             "content": "Lava",
-            "owner": "Kevin",
+            "owner": "kevin",
             "mode": 755
         },
         {
-            "name": "/home/Kevin/TeddyBear",
+            "name": "/home/bob/TeddyBear",
             "content": "Plush",
-            "owner": "Bob",
+            "owner": "bob",
             "mode": 700
         }
     ],
     "dirs": [
 		{
-            "name": "/home/Stewart/logs",            
-            "owner": "Stewart",
+            "name": "/home/stewart/logs",            
+            "owner": "stewart",
             "mode": 666
 		}
     ],
