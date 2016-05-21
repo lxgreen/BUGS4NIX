@@ -6,22 +6,20 @@ class OSDetector:
         self._flavors = commands['supported_flavors']
 
     def _is_os(self, os_id):
-        releaseTest = Command(self._commands['test_etc_release']['command_line'], {os_id})
-        versionTest = Command(self._commands['test_proc_version']['command_line'], {os_id})
-        lsbReleaseTest = Command(self._commands['test_lsb_release']['command_line'], {os_id})
-        result = releaseTest.execute()
+        test_etc_release = Command(self._commands['test_etc_release']['command_line'], {os_id})
+        test_proc_version = Command(self._commands['test_proc_version']['command_line'], {os_id})
+        test_lsb_release = Command(self._commands['test_lsb_release']['command_line'], {os_id})
+        result = test_etc_release.execute()
         if result.output:
             return True
-        result = versionTest.execute()
+        result = test_proc_version.execute()
         if result.output:
             return True
-        result = lsbReleaseTest.execute()
+        result = test_lsb_release.execute()
         return bool(result.output)
 
     def detect_flavor(self):
         for flavor in self._flavors:
             if self._is_os(flavor):
                 return flavor
-        raise NotImplementedError("The current OS is not supported yet")
-
-    
+        raise NotImplementedError("the current OS is not supported yet")
