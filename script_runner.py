@@ -38,7 +38,7 @@ class ScriptRunner:
         for user in data['users']:
             self._execute_command(user, create_user)
             self._execute_command(user, set_user_password)
-            if user['is_locked']:
+            if user['locked']:
                 self._execute_command(user, lock_user)
             for group in user['groups']:
                 self._execute_command({'name': user['name'], 'group': group}, add_user_to_group)
