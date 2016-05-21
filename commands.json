@@ -68,6 +68,55 @@
     },
     "SUSE": { },
     "Solaris": { },
-    "Fedora": { },
+    "Fedora": {
+        "commands": {
+            "create_user": {
+                "command_line": "useradd {0}",
+                "params": [ "name" ]
+            },
+            "create_group": {
+                "command_line": "groupadd {0}",
+                "params": [ "name" ]
+            },
+            "add_user_to_group": {
+                "command_line": "gpasswd -a {0} {1}",
+                "params": [ "group", "name" ]
+            },
+            "set_user_password": {
+                "command_line": "echo -e \"{0}\\n{0}\" | (passwd --stdin {1})",
+                "params": [ "password", "name" ]
+            },
+            "lock_user": {
+                "command_line": "passwd {0} -l",
+                "params": [ "name" ]
+            },
+            "generate_ssh_key": {
+
+            },
+            "create_directory": {
+                "command_line": "mkdir {0}",
+                "params": [ "name" ]
+            },
+            "create_text_file": {
+                "command_line": "echo {0} > {1}",
+                "params": [ "content", "name" ]
+            },
+            "set_permissions": {
+                "command_line": "chmod {0} {1}",
+                "params": [ "mode", "name" ]
+            },
+            "set_owner": {
+                "command_line": "chown {0} {1}",
+                "params": [ "owner", "name" ]
+            }
+        },
+        "script": [
+            "create_users",
+            "create_groups",
+            "create_dirs",
+            "create_files"
+        ]
+
+    },
     "Ubuntu": { }
 }
