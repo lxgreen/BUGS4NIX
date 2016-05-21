@@ -1,5 +1,5 @@
-﻿{
-    "groups": ["testers", "admins", "users", "managers"],
+{
+    "groups": [{"name": "testers"}, {"name": "admins"}, {"name": "users"}, {"name": "managers"}],
     "users": [
         {
             "name": "Kevin",
@@ -40,6 +40,12 @@
             "mode": 700
         }
     ],
-    "dirs": [ ],
+    "dirs": [
+		{
+            "name": "/home/Stewart/logs",            
+            "owner": "Stewart",
+            "mode": 666
+		}
+    ],
     "ssh_keys": []
 }

@@ -1,4 +1,4 @@
-﻿{
+{
     "agnostic": {
         "supported_flavors": [ "SUSE", "Solaris", "Fedora", "CentOS", "Ubuntu" ],
         "commands": {
@@ -16,57 +16,58 @@
             }
         }
     },
-    "CentOS": {
+    "Fedora": {
         "commands": {
             "create_user": {
                 "command_line": "useradd {0}",
-                "params": [ "user.name" ]
+                "params": [ "name" ]
             },
             "create_group": {
                 "command_line": "groupadd {0}",
-                "params": [ "group.name" ]
+                "params": [ "name" ]
             },
             "add_user_to_group": {
                 "command_line": "gpasswd -a {0} {1}",
-                "params": [ "user.name", "user.groups" ]
+                "params": [ "name", "group" ]
             },
             "set_user_password": {
                 "command_line": "echo -e \"{0}\\n{0}\" | (passwd --stdin {1})",
-                "params": [ "user.password", "user.name" ]
+                "params": [ "password", "name" ]
             },
             "lock_user": {
-                "command_line": "passwd {0}",
-                "params": [ "user.name" ]
+                "command_line": "passwd {0} -l",
+                "params": [ "name" ]
             },
             "generate_ssh_key": {
 
             },
             "create_directory": {
                 "command_line": "mkdir {0}",
-                "params": [ "dir.name" ]
+                "params": [ "name" ]
             },
             "create_text_file": {
                 "command_line": "echo {0} > {1}",
-                "params": [ "file.content", "file.name" ]
+                "params": [ "content", "name" ]
             },
             "set_permissions": {
                 "command_line": "chmod {0} {1}",
-                "params": [ "node.mode", "node.name" ]
+                "params": [ "mode", "name" ]
             },
             "set_owner": {
                 "command_line": "chown {0} {1}",
-                "params": [ "node.owner", "node.name" ]
+                "params": [ "owner", "name" ]
             }
         },
         "script": [
-            "create_groups",
             "create_users",
+            "create_groups",
+            "create_dirs",
             "create_files"
         ]
 
     },
     "SUSE": { },
     "Solaris": { },
-    "Fedora": { },
+    "CentOS": { },
     "Ubuntu": { }
 }

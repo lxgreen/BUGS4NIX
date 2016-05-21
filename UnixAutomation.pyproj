@@ -28,10 +28,16 @@
     <Compile Include="json_file_parser.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="json_file_validator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="os_detector.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="script_runner.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="unix_automation.py" />
