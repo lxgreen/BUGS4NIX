@@ -1,10 +1,11 @@
+# /usr/bin/python
 import argparse
 
 from json_file_parser import JSONFileParser, FileParserError
 from os_detector import OSDetector
 from script_runner import ScriptRunner
 
-
+# Prerequisites: run this script as root (sudo)
 def main():
     # Get the data and commands file paths from command line
     cli_parser = argparse.ArgumentParser(description='Unix Automation Console')

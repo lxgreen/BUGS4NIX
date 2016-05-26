@@ -4,18 +4,29 @@
         {
             "name": "kevin",
             "password": "Guys!",
+            "plain_password" : true,
             "groups": [ "minions", "guys" ],
-            "locked":  false
+            "locked":  false,
+            "ssh": {
+                "path": "/home/kevin/.ssh/id_rsa",
+                "phrase" : ""
+            }
         },
         {
             "name": "stewart",
             "password": "Banana!",
+            "plain_password" : true,
             "groups": [ "minions" ],
-            "locked": true
+            "locked": true,
+            "ssh": {
+                "path": "/home/stewart/.ssh/id_rsa",
+                "phrase" : "Banana"
+            }
         },
         {
             "name": "bob",
             "password": "AAAaaaAAAaaa!",
+            "plain_password" : false,
             "groups": [ "minions" ],
             "locked": true
         }

@@ -38,8 +38,9 @@
                 "command_line": "passwd {0} -l",
                 "params": [ "name" ]
             },
-            "generate_ssh_key": {
-
+            "generate_ssh_keys": {
+                "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N {2}",
+                "params": [ "name", "path", "phrase" ]
             },
             "create_directory": {
                 "command_line": "mkdir {0}",
@@ -90,8 +91,9 @@
                 "command_line": "passwd {0} -l",
                 "params": [ "name" ]
             },
-            "generate_ssh_key": {
-
+             "generate_ssh_keys": {
+                "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N {2}",
+                "params": [ "name", "path", "phrase" ]
             },
             "create_directory": {
                 "command_line": "mkdir {0}",

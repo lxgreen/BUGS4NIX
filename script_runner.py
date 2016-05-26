@@ -37,6 +37,7 @@ class ScriptRunner:
         add_user_to_group = self._commands['add_user_to_group']
         set_user_password = self._commands['set_user_password']
         lock_user = self._commands['lock_user']
+        generate_ssh_keys = self._commands['generate_ssh_keys']
         for user in data['users']:
             self._execute_command(user, create_user)
             self._execute_command(user, set_user_password)
@@ -44,6 +45,11 @@ class ScriptRunner:
                 self._execute_command(user, lock_user)
             for group in user['groups']:
                 self._execute_command({'name': user['name'], 'group': group}, add_user_to_group)
+            if user['ssh']:
+                self._execute_command({'path': user['ssh']['path'], 
+                                      'phrase': user['ssh']['phrase'], 
+                                      'name': user['name']}, 
+                                      generate_ssh_keys)
 
     def create_dirs(self, data):
         create_directory = self._commands['create_directory']
