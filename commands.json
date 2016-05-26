@@ -39,7 +39,7 @@
                 "params": [ "name" ]
             },
             "generate_ssh_keys": {
-                "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N {2}",
+                "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N '{2}'",
                 "params": [ "name", "path", "phrase" ]
             },
             "create_directory": {
@@ -92,7 +92,7 @@
                 "params": [ "name" ]
             },
              "generate_ssh_keys": {
-                "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N {2}",
+                "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N '{2}'",
                 "params": [ "name", "path", "phrase" ]
             },
             "create_directory": {
