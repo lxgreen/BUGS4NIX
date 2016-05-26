@@ -45,7 +45,7 @@ class ScriptRunner:
                 self._execute_command(user, lock_user)
             for group in user['groups']:
                 self._execute_command({'name': user['name'], 'group': group}, add_user_to_group)
-            if user['ssh']:
+            if user['ssh'] is not None:
                 self._execute_command({'path': user['ssh']['path'], 
                                       'phrase': user['ssh']['phrase'], 
                                       'name': user['name']}, 
