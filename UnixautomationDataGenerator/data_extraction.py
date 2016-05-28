@@ -27,7 +27,7 @@ class UserDataExtractor(DataExtractor):
             result.append({
                             'name': data_sheet.columns[UserDataExtractor._NAME][i].value,
                             'password': data_sheet.columns[UserDataExtractor._PASSWORD][i].value,
-                            'groups': data_sheet.columns[UserDataExtractor._GROUPS][i].value,
+                            'groups': [data_sheet.columns[UserDataExtractor._GROUPS][i].value],
                             'ssh':  {
                                         'path': data_sheet.columns[UserDataExtractor._SSH_PATH][i].value,
                                         'phrase': data_sheet.columns[UserDataExtractor._SSH_PHRASE][i].value                                        
