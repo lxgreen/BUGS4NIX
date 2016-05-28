@@ -1,4 +1,4 @@
-# /usr/bin/python
+#!/usr/bin/python
 import argparse
 
 from json_file_parser import JSONFileParser, FileParserError

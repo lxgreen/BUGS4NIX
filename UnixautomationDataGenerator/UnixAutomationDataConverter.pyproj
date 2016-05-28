@@ -3,15 +3,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>5dc1616b-0c02-4800-9bc4-5be188c8ac7a</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>unix_automation.py</StartupFile>
+    <ProjectGuid>4e80c921-48ff-42f9-b966-c78a3a7bcf26</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>data_converter.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>UnixAutomation</Name>
-    <RootNamespace>UnixAutomation</RootNamespace>
+    <Name>UnixAutomationDataConverter</Name>
+    <RootNamespace>UnixautomationDataGenerator</RootNamespace>
+    <InterpreterId>{08563f05-5c00-47b9-95fc-7ab06938a00c}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,26 +25,35 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="commands.py">
+    <Compile Include="data_converter.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="json_file_parser.py">
+    <Compile Include="data_extraction.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="json_file_validator.py">
+    <Compile Include="data_processing.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="os_detector.py">
+    <Compile Include="json_data_writer.py" />
+    <Compile Include="excel_helper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="script_runner.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="unix_automation.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="commands.json" />
-    <Content Include="data.json" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="unix_automation_env\">
+      <Id>{08563f05-5c00-47b9-95fc-7ab06938a00c}</Id>
+      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
+      <Version>2.7</Version>
+      <Description>unix_automation_env (Python 2.7)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X86</Architecture>
+    </Interpreter>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
