@@ -8,7 +8,7 @@ class GroupDataExtractor(DataExtractor):
         for i in range(1, data_sheet.max_row):
             if data_sheet.columns[0][i].value == None:
                 return result
-            result.append(data_sheet.columns[0][i].value)
+            result.append({ 'name': data_sheet.columns[0][i].value })
         return result
 
 class UserDataExtractor(DataExtractor):
