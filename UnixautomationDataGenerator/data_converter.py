@@ -10,9 +10,9 @@ def main():
     cli_parser.add_argument('--in', dest='data_input', type=str, default='./data.xlsx', 
                             help='path to Excel file containing desired users, groups, files, and dirs ' 
                             'configuration info (default: ./data.xlsx)')
-    cli_parser.add_argument('--out', dest='data_output', type=str, default='./data.json', 
+    cli_parser.add_argument('--out', dest='data_output', type=str, default='../data.json', 
                             help='path to data.json containing the desired users, groups, files, and dirs ' 
-                            'configuration info (default: ./data.json)')
+                            'configuration info (default: ../data.json)')
     args = cli_parser.parse_args()
     try:
         data_writer = JSONDataWriter(args.data_output)
