@@ -12,6 +12,16 @@ class GroupDataExtractor(DataExtractor):
             result.append({ 'name': name_column[i].value })
         return result
 
+class ScriptDataExtractor(DataExtractor):
+    def extract_data(self, data_sheet):
+        result = []
+        name_column = data_sheet.columns[0]
+        for i in range(1, data_sheet.max_row):
+            if name_column[i].value == None:
+                return result
+            result.append({ 'name': name_column[i].value })
+        return result
+
 class UserDataExtractor(DataExtractor):
     _NAME = 0
     _PASSWORD = 1
@@ -95,7 +105,8 @@ class DataExtractorFactory:
                     'Groups': GroupDataExtractor(),
                     'Users': UserDataExtractor(),
                     'Files': FileDataExtractor(),
-                    'Directories': DirectoryDataExtractor()
+                    'Directories': DirectoryDataExtractor(),
+                    'Scripts': ScriptDataExtractor()
                   }    
     
     def get_extractor(self, sheet_name):

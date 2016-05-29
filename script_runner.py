@@ -27,6 +27,11 @@ class ScriptRunner:
         return result
 
     # TODO: handle errors
+    def register_scripts(self, data):
+        register_script = self._commands['register_script']
+        for script in data['scripts']:
+            self._execute_command(script, register_script)
+
     def create_groups(self, data):
         create_group = self._commands['create_group']
         for group in data['groups']:
@@ -38,6 +43,7 @@ class ScriptRunner:
         set_user_password = self._commands['set_user_password']
         lock_user = self._commands['lock_user']
         generate_ssh_keys = self._commands['generate_ssh_keys']
+        run_script = self._commands['run_script']
         for user in data['users']:
             self._execute_command(user, create_user)
             self._execute_command(user, set_user_password)
@@ -50,6 +56,9 @@ class ScriptRunner:
                                       'phrase': user['ssh']['phrase'], 
                                       'name': user['name']}, 
                                       generate_ssh_keys)
+            if user.get('sudoers'):
+                # TODO: replace the hard coded script name by a common mechanism of custom script launch
+                self._execute_command({'name': 'add_sudoer.sh', 'param1': user['sudoers']}, run_script)
 
     def create_dirs(self, data):
         create_directory = self._commands['create_directory']

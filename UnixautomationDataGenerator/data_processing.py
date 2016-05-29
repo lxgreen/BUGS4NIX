@@ -6,6 +6,10 @@ class GroupDataProcessor(DataProcessor):
     def process_data(self, appended, data):
         data['groups'] = appended
 
+class ScriptDataProcessor(DataProcessor):
+    def process_data(self, appended, data):
+        data['scripts'] = appended
+
 class UserDataProcessor(DataProcessor):
     def process_data(self, appended, data):
         data['users'] = appended
@@ -23,7 +27,8 @@ class DataProcessorFactory:
                     'Groups': GroupDataProcessor(),
                     'Users': UserDataProcessor(),
                     'Files': FileDataProcessor(),
-                    'Directories': DirectoryDataProcessor()
+                    'Directories': DirectoryDataProcessor(),
+                    'Scripts': ScriptDataProcessor()
                   }    
     
     def get_processor(self, sheet_name):

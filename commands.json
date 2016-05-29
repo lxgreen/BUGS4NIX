@@ -18,6 +18,14 @@
     },
     "CentOS": {
         "commands": {
+            "register_script": {
+                "command_line": "chmod +x {0}",
+                "params": [ "name" ]
+            },
+            "run_script": {
+                "command_line": "{0} {1}",
+                "params": [ "name", "param1" ]
+            },
             "create_user": {
                 "command_line": "useradd {0}",
                 "params": [ "name" ]
@@ -57,9 +65,11 @@
             "set_owner": {
                 "command_line": "chown {0} {1}",
                 "params": [ "owner", "name" ]
-            }
+            },
+            "add_sudoer": ""
         },
         "script": [
+            "register_scripts",
             "create_groups",
             "create_users",
             "create_dirs",
@@ -71,6 +81,14 @@
     "Solaris": { },
     "Fedora": {
         "commands": {
+            "register_script": {
+                "command_line": "chmod +x {0}",
+                "params": [ "name" ]
+            },
+            "run_script": {
+                "command_line": "{0} {1}",
+                "params": [ "name", "param1" ]
+            },
             "create_user": {
                 "command_line": "useradd {0}",
                 "params": [ "name" ]
@@ -113,6 +131,7 @@
             }
         },
         "script": [
+            "register_scripts",
             "create_groups",
             "create_users",
             "create_dirs",
