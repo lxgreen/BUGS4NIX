@@ -5,10 +5,11 @@ class DataExtractor:
 class GroupDataExtractor(DataExtractor):
     def extract_data(self, data_sheet):
         result = []
+        name_column = data_sheet.columns[0]
         for i in range(1, data_sheet.max_row):
-            if data_sheet.columns[0][i].value == None:
+            if name_column[i].value == None:
                 return result
-            result.append({ 'name': data_sheet.columns[0][i].value })
+            result.append({ 'name': name_column[i].value })
         return result
 
 class UserDataExtractor(DataExtractor):
@@ -18,21 +19,30 @@ class UserDataExtractor(DataExtractor):
     _SSH_PATH = 3
     _SSH_PHRASE = 4
     _LOCKED = 5
+    _SUDOERS = 6
 
     def extract_data(self, data_sheet):
         result = []
+        name_column = data_sheet.columns[UserDataExtractor._NAME]
+        password_column = data_sheet.columns[UserDataExtractor._PASSWORD]
+        groups_column = data_sheet.columns[UserDataExtractor._GROUPS]
+        path_column = data_sheet.columns[UserDataExtractor._SSH_PATH]
+        phrase_column = data_sheet.columns[UserDataExtractor._SSH_PHRASE]
+        locked_column = data_sheet.columns[UserDataExtractor._LOCKED]
+        sudoers_column = data_sheet.columns[UserDataExtractor._SUDOERS]
         for i in range(1, data_sheet.max_row):
-            if data_sheet.columns[UserDataExtractor._NAME][i].value == None:
+            if name_column[i].value == None:
                 return result
             result.append({
-                            'name': data_sheet.columns[UserDataExtractor._NAME][i].value,
-                            'password': data_sheet.columns[UserDataExtractor._PASSWORD][i].value,
-                            'groups': [data_sheet.columns[UserDataExtractor._GROUPS][i].value],
+                            'name': name_column[i].value,
+                            'password': password_column[i].value,
+                            'groups': groups_column[i].value,
                             'ssh':  {
-                                        'path': data_sheet.columns[UserDataExtractor._SSH_PATH][i].value,
-                                        'phrase': data_sheet.columns[UserDataExtractor._SSH_PHRASE][i].value                                        
+                                        'path': path_column[i].value,
+                                        'phrase': phrase_column[i].value                                        
                                     },
-                            'locked': data_sheet.columns[UserDataExtractor._LOCKED][i].value 
+                            'locked': locked_column[i].value,
+                            'sudoers': sudoers_column[i].value
                           })
         return result
 
@@ -44,14 +54,18 @@ class FileDataExtractor(DataExtractor):
 
     def extract_data(self, data_sheet):
         result = []
+        name_column = data_sheet.columns[DirectoryDataExtractor._NAME]
+        mode_column = data_sheet.columns[DirectoryDataExtractor._MODE]
+        owner_column = data_sheet.columns[DirectoryDataExtractor._OWNER]
+        content_column = data_sheet.columns[FileDataExtractor._CONTENT]
         for i in range(1, data_sheet.max_row):
-            if data_sheet.columns[FileDataExtractor._NAME][i].value == None:
+            if name_column[i].value == None:
                 return result
             result.append({
-                            'name': data_sheet.columns[FileDataExtractor._NAME][i].value,
-                            'mode': data_sheet.columns[FileDataExtractor._MODE][i].value,
-                            'content': data_sheet.columns[FileDataExtractor._CONTENT][i].value,                            
-                            'owner': data_sheet.columns[FileDataExtractor._OWNER][i].value
+                            'name': name_column[i].value,
+                            'mode': mode_column[i].value,
+                            'content': content_column[i].value,                            
+                            'owner': owner_column[i].value
                           })
         return result
 
@@ -62,13 +76,16 @@ class DirectoryDataExtractor(DataExtractor):
 
     def extract_data(self, data_sheet):
         result = []
+        name_column = data_sheet.columns[DirectoryDataExtractor._NAME]
+        mode_column = data_sheet.columns[DirectoryDataExtractor._MODE]
+        owner_column = data_sheet.columns[DirectoryDataExtractor._OWNER]
         for i in range(1, data_sheet.max_row):
-            if data_sheet.columns[DirectoryDataExtractor._NAME][i].value == None:
+            if name_column[i].value == None:
                 return result
             result.append({
-                            'name': data_sheet.columns[DirectoryDataExtractor._NAME][i].value,
-                            'mode': data_sheet.columns[DirectoryDataExtractor._MODE][i].value,                              
-                            'owner': data_sheet.columns[DirectoryDataExtractor._OWNER][i].value
+                            'name': name_column[i].value,
+                            'mode': mode_column[i].value,                              
+                            'owner': owner_column[i].value
                           })
         return result
 
