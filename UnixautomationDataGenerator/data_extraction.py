@@ -59,9 +59,9 @@ class FileDataExtractor(DataExtractor):
 
     def extract_data(self, data_sheet):
         result = []
-        name_column = data_sheet.columns[DirectoryDataExtractor._NAME]
-        mode_column = data_sheet.columns[DirectoryDataExtractor._MODE]
-        owner_column = data_sheet.columns[DirectoryDataExtractor._OWNER]
+        name_column = data_sheet.columns[FileDataExtractor._NAME]
+        mode_column = data_sheet.columns[FileDataExtractor._MODE]
+        owner_column = data_sheet.columns[FileDataExtractor._OWNER]
         content_column = data_sheet.columns[FileDataExtractor._CONTENT]
         for i in range(1, data_sheet.max_row):
             if name_column[i].value == None:
