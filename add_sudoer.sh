@@ -1,4 +1,4 @@
-if [ "$1" -ne "/etc/sudoers" ]; then
+if [ "$1" != "/etc/sudoers" ]; then
 
   # When you run the script, you will run this block since $1 is empty.
   # We first set this script as the EDITOR and then starts visudo.
