@@ -22,9 +22,9 @@
                 "command_line": "chmod +x {0}",
                 "params": [ "name" ]
             },
-            "run_script": {
-                "command_line": "{0} {1}",
-                "params": [ "name", "param1" ]
+            "add_sudoer": {
+                "command_line": "./add_sudoer.sh {0}",
+                "params": [ "sudoer" ]
             },
             "create_user": {
                 "command_line": "useradd {0}",
@@ -65,8 +65,7 @@
             "set_owner": {
                 "command_line": "chown {0} {1}",
                 "params": [ "owner", "name" ]
-            },
-            "add_sudoer": ""
+            }
         },
         "script": [
             "register_scripts",
@@ -74,8 +73,12 @@
             "create_users",
             "create_dirs",
             "create_files"
+        ],
+        "custom_commands": [
+            {
+                "name": "./add_sudoer.sh"
+            }
         ]
-
     },
     "SUSE": { },
     "Solaris": { },
@@ -85,9 +88,9 @@
                 "command_line": "chmod +x {0}",
                 "params": [ "name" ]
             },
-            "run_script": {
-                "command_line": "{0} {1}",
-                "params": [ "name", "param1" ]
+            "add_sudoer": {
+                "command_line": "./add_sudoer.sh {0}",
+                "params": [ "sudoer" ]
             },
             "create_user": {
                 "command_line": "useradd {0}",
@@ -136,8 +139,12 @@
             "create_users",
             "create_dirs",
             "create_files"
+        ],
+        "custom_commands": [
+            {
+                "name": "./add_sudoer.sh"
+            }
         ]
-
     },
     "Ubuntu": { }
 }

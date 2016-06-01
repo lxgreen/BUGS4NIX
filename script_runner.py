@@ -2,12 +2,13 @@ from commands import *
 
 class ScriptRunner:
     def __init__(self, flavored, data):
-        self.script = flavored['script']
+        self._script = flavored['script']
         self._commands = flavored['commands']
+        self._custom_commands = flavored['custom_commands']
         self._data = data
 
     def run(self):
-        for command in self.script:
+        for command in self._script:
             if hasattr(self, command):
                 getattr(self, command)(self._data)
             else:
@@ -29,13 +30,16 @@ class ScriptRunner:
     # TODO: handle errors
     def register_scripts(self, data):
         register_script = self._commands['register_script']
-        for script in data['scripts']:
-            self._execute_command(script, register_script)
+        for custom_command in self._custom_commands:
+            self._execute_command(custom_command, register_script)
 
     def create_groups(self, data):
         create_group = self._commands['create_group']
+        add_sudoer = self._commands['add_sudoer']
         for group in data['groups']:
-            self._execute_command(group, create_group)           
+            self._execute_command(group, create_group)
+        if group.get('sudoers'):
+                self._execute_command({'sudoer': '%{0} {1}'.format(group['name'], group['sudoers'])}, add_sudoer)           
 
     def create_users(self, data):
         create_user = self._commands['create_user']
@@ -43,7 +47,7 @@ class ScriptRunner:
         set_user_password = self._commands['set_user_password']
         lock_user = self._commands['lock_user']
         generate_ssh_keys = self._commands['generate_ssh_keys']
-        run_script = self._commands['run_script']
+        add_sudoer = self._commands['add_sudoer']
         for user in data['users']:
             self._execute_command(user, create_user)
             self._execute_command(user, set_user_password)
@@ -57,8 +61,7 @@ class ScriptRunner:
                                       'name': user['name']}, 
                                       generate_ssh_keys)
             if user.get('sudoers'):
-                # TODO: replace the hard coded script name by a common mechanism of custom script launch
-                self._execute_command({'name': 'add_sudoer.sh', 'param1': user['sudoers']}, run_script)
+                self._execute_command({'sudoer': '{0} {1}'.format(user['name'], user['sudoers'])}, add_sudoer)
 
     def create_dirs(self, data):
         create_directory = self._commands['create_directory']
