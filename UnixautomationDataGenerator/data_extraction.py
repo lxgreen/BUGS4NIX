@@ -7,8 +7,8 @@ class GroupDataExtractor(DataExtractor):
     _SUDOERS = 1
     def extract_data(self, data_sheet):
         result = []
-        name_column = data_sheet.columns[UserDataExtractor._NAME]        
-        sudoers_column = data_sheet.columns[UserDataExtractor._SUDOERS]        
+        name_column = data_sheet.columns[GroupDataExtractor._NAME]        
+        sudoers_column = data_sheet.columns[GroupDataExtractor._SUDOERS]        
         for i in range(1, data_sheet.max_row):
             if name_column[i].value == None:
                 return result
