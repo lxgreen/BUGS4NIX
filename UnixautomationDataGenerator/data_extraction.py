@@ -41,7 +41,7 @@ class UserDataExtractor(DataExtractor):
             result.append({
                             'name': name_column[i].value,
                             'password': password_column[i].value,
-                            'groups': groups_column[i].value,
+                            'groups': [groups_column[i].value],
                             'ssh':  {
                                         'path': path_column[i].value,
                                         'phrase': phrase_column[i].value                                        
