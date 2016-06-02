@@ -38,8 +38,8 @@ class ScriptRunner:
         add_sudoer = self._commands['add_sudoer']
         for group in data['groups']:
             self._execute_command(group, create_group)
-        if group.get('sudoers'):
-                self._execute_command({'sudoer': '%{0} {1}'.format(group['name'], group['sudoers'])}, add_sudoer)           
+            if group.get('sudoers'):
+                    self._execute_command({'sudoer': '%{0} {1}'.format(group['name'], group['sudoers'])}, add_sudoer)           
 
     def create_users(self, data):
         create_user = self._commands['create_user']
