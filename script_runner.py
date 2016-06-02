@@ -47,6 +47,7 @@ class ScriptRunner:
         set_user_password = self._commands['set_user_password']
         lock_user = self._commands['lock_user']
         generate_ssh_keys = self._commands['generate_ssh_keys']
+        install_public_key = self._commands['install_public_key']
         add_sudoer = self._commands['add_sudoer']
         for user in data['users']:
             self._execute_command(user, create_user)
@@ -60,6 +61,9 @@ class ScriptRunner:
                                       'phrase': user['ssh']['phrase'], 
                                       'name': user['name']}, 
                                       generate_ssh_keys)
+                self._execute_command({'key_path': '{0}.pub'.format(user['ssh']['path']), 
+                                      'authorized_keys': user['ssh']['authorized_keys'], 
+                                      'name': user['name']})
             if user.get('sudoers'):
                 self._execute_command({'sudoer': '{0} {1}'.format(user['name'], user['sudoers'])}, add_sudoer)
 

@@ -50,6 +50,10 @@
                 "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N '{2}'",
                 "params": [ "name", "path", "phrase" ]
             },
+            "install_public_key": {
+                "command_line": "sudo -u {0} cat {1} >> {2}",
+                "params": [ "name", "key_path", "authorized_keys" ]
+            },
             "create_directory": {
                 "command_line": "mkdir {0}",
                 "params": [ "name" ]
@@ -111,6 +115,10 @@
              "generate_ssh_keys": {
                 "command_line": "sudo -u {0} ssh-keygen -t rsa -f {1} -N '{2}'",
                 "params": [ "name", "path", "phrase" ]
+            },
+            "install_public_key": {
+                "command_line": "sudo -u {0} cat {1} >> {2}",
+                "params": [ "name", "key_path", "authorized_keys" ]
             },
             "create_directory": {
                 "command_line": "mkdir {0}",

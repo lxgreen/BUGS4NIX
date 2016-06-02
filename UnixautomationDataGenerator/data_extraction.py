@@ -22,9 +22,10 @@ class UserDataExtractor(DataExtractor):
     _PASSWORD = 1
     _GROUPS = 2
     _SSH_PATH = 3
-    _SSH_PHRASE = 4
-    _LOCKED = 5
-    _SUDOERS = 6
+    _SSH_AUTH_KEYS = 4
+    _SSH_PHRASE = 5
+    _LOCKED = 6
+    _SUDOERS = 7
 
     def extract_data(self, data_sheet):
         result = []
@@ -32,6 +33,7 @@ class UserDataExtractor(DataExtractor):
         password_column = data_sheet.columns[UserDataExtractor._PASSWORD]
         groups_column = data_sheet.columns[UserDataExtractor._GROUPS]
         path_column = data_sheet.columns[UserDataExtractor._SSH_PATH]
+        auth_keys_column = data_sheet.columns[UserDataExtractor._SSH_AUTH_KEYS]
         phrase_column = data_sheet.columns[UserDataExtractor._SSH_PHRASE]
         locked_column = data_sheet.columns[UserDataExtractor._LOCKED]
         sudoers_column = data_sheet.columns[UserDataExtractor._SUDOERS]
@@ -44,7 +46,8 @@ class UserDataExtractor(DataExtractor):
                             'groups': [groups_column[i].value],
                             'ssh':  {
                                         'path': path_column[i].value,
-                                        'phrase': phrase_column[i].value                                        
+                                        'phrase': phrase_column[i].value,
+                                        'authorized_keys': auth_keys_column[i].value
                                     },
                             'locked': locked_column[i].value,
                             'sudoers': sudoers_column[i].value
