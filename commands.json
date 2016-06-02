@@ -73,7 +73,8 @@
             "create_users",
             "create_dirs",
             "create_files"
-        ]
+        ],
+        "custom_commands": []        
     },
     "SUSE": { },
     "Solaris": { },
@@ -134,7 +135,8 @@
             "create_users",
             "create_dirs",
             "create_files"
-        ]
+        ],
+        "custom_commands": []
     },
     "Ubuntu": { }
 }
