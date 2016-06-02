@@ -23,7 +23,7 @@
                 "params": [ "name" ]
             },
             "add_sudoer": {
-                "command_line": "./add_sudoer.sh \"{0}\"",
+                "command_line": "echo \"{0}\" >> /etc/sudoers; visudo -c",
                 "params": [ "sudoer" ]
             },
             "create_user": {
@@ -73,11 +73,6 @@
             "create_users",
             "create_dirs",
             "create_files"
-        ],
-        "custom_commands": [
-            {
-                "name": "./add_sudoer.sh"
-            }
         ]
     },
     "SUSE": { },
@@ -89,7 +84,7 @@
                 "params": [ "name" ]
             },
             "add_sudoer": {
-                "command_line": "./add_sudoer.sh \"{0}\"",
+                "command_line": "echo \"{0}\" >> /etc/sudoers; visudo -c",
                 "params": [ "sudoer" ]
             },
             "create_user": {
@@ -139,11 +134,6 @@
             "create_users",
             "create_dirs",
             "create_files"
-        ],
-        "custom_commands": [
-            {
-                "name": "./add_sudoer.sh"
-            }
         ]
     },
     "Ubuntu": { }

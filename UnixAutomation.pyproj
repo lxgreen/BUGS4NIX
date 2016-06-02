@@ -40,7 +40,6 @@
     <Compile Include="unix_automation.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="add_sudoer.sh" />
     <Content Include="commands.json" />
   </ItemGroup>
   <PropertyGroup>
