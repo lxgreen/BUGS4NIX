@@ -63,7 +63,8 @@ class ScriptRunner:
                                       generate_ssh_keys)
                 self._execute_command({'key_path': '{0}.pub'.format(user['ssh']['path']), 
                                       'authorized_keys': user['ssh']['authorized_keys'], 
-                                      'name': user['name']})
+                                      'name': user['name']},
+                                       install_public_key)
             if user.get('sudoers'):
                 self._execute_command({'sudoer': '{0} {1}'.format(user['name'], user['sudoers'])}, add_sudoer)
 
