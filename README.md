@@ -44,4 +44,4 @@ JSON files.
 
 The main script `unix_automation.py` should run as `root`. By default, the script looks for both JSON files in the same directory. This can be overridden by providing the `--data` and `--commands` parameters to the script.
 
-At the moment, every command execution is logged to the console, and a command failure does not prevent next commands to try to run. All the commands run serially and synchronously.
+At the moment, every command execution is logged to the console, and a command failure does not prevent next commands to try to run. Any command that returned non-zero return value, is considered a failure. All the commands run serially and synchronously.
