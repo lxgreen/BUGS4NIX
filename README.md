@@ -17,7 +17,7 @@ BUGS is an acronym for "Batch Users, Groups, Sudo/SSH". It allows automatic user
 	* Access mode configuration
 	* Owner configuration
 
-## PREREQUISITES
+## PREREQUIREMENTS
 * Python 2.7
 * Excel supporting software (for data generation)
 
