@@ -28,7 +28,7 @@ The BUGS consists of two components: Data Converter and Unix Automation. The for
 The Data Converter component contains the predefined Excel document `data.xlsx`. This document contains 4 sheets: Groups, Users, Files and Directories. Each sheet has some sample data. The user is intended to input the desired data to the document, and then run the `data_converter.py` script. 
 By default, the script is looking for `data.xlsx` in the same directory, and writes its output to `data.json` at the upper level.
 These defaults can be overridden by providing `--in` and `--out` parameters to the script.
-The Data Converter can be run locally, and only its output file (`data.json`) should be deployed to a target machine.
+The Data Converter can be run locally, and its output file (`data.json`) should be deployed to a target machine.
 
 ### Unix Automation
 The Unix Automation component consists of Python modules and two JSON files: `data.json` and `commands.json`. 
